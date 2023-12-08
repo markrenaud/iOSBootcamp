@@ -10,7 +10,7 @@ import SwiftUI
 struct Module1_HomeworkApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(model: RGBModel.skyBlue)
         }
     }
 }
