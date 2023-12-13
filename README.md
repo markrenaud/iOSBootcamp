@@ -1,0 +1,1 @@
+This repo contains homework assignments completed during Kodeco's iOS Bootcamp.
