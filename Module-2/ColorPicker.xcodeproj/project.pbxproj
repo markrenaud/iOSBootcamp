@@ -12,16 +12,32 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		6362B4872B2979C800B0A92D /* RGBSliders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B4832B2979C800B0A92D /* RGBSliders.swift */; };
+		6362B4882B2979C800B0A92D /* IntegerSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B4842B2979C800B0A92D /* IntegerSlider.swift */; };
+		6362B4892B2979C800B0A92D /* StylizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B4852B2979C800B0A92D /* StylizedButton.swift */; };
+		6362B48A2B2979C800B0A92D /* AdaptiveStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B4862B2979C800B0A92D /* AdaptiveStack.swift */; };
+		6362B48D2B2979D400B0A92D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B48B2B2979D400B0A92D /* Constants.swift */; };
+		6362B48E2B2979D400B0A92D /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B48C2B2979D400B0A92D /* ColorModel.swift */; };
+		6362B4902B2979DB00B0A92D /* ValueClamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6362B48F2B2979DB00B0A92D /* ValueClamping.swift */; };
+		6362B4922B297C5500B0A92D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6362B4912B297C5500B0A92D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1839F4AF25190F2A00BB00F1 /* AppMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; };
+		1839F4AF25190F2A00BB00F1 /* AppMain.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AppMain.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		18D775BD22AD944300AE281E /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		18D775C422AD944300AE281E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18D775C422AD944300AE281E /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; };
 		18D775C622AD944400AE281E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6362B4832B2979C800B0A92D /* RGBSliders.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RGBSliders.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B4842B2979C800B0A92D /* IntegerSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = IntegerSlider.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B4852B2979C800B0A92D /* StylizedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = StylizedButton.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B4862B2979C800B0A92D /* AdaptiveStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AdaptiveStack.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B48B2B2979D400B0A92D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B48C2B2979D400B0A92D /* ColorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B48F2B2979DB00B0A92D /* ValueClamping.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ValueClamping.swift; sourceTree = "<group>"; tabWidth = 4; };
+		6362B4912B297C5500B0A92D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +54,7 @@
 		18D775B422AD944300AE281E = {
 			isa = PBXGroup;
 			children = (
+				6362B4912B297C5500B0A92D /* README.md */,
 				18D775BF22AD944300AE281E /* ColorPicker */,
 				18D775BE22AD944300AE281E /* Products */,
 			);
@@ -56,11 +73,10 @@
 		18D775BF22AD944300AE281E /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
-				1839F4AF25190F2A00BB00F1 /* AppMain.swift */,
-				18D775C422AD944300AE281E /* ContentView.swift */,
-				18D775C622AD944400AE281E /* Assets.xcassets */,
-				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
-				18D775CE22AD944400AE281E /* Info.plist */,
+				6362B47F2B2978D000B0A92D /* App */,
+				6362B4802B2978D600B0A92D /* Views */,
+				6362B4812B2978DE00B0A92D /* Model */,
+				6362B4822B2978E400B0A92D /* Helpers */,
 				18D775C822AD944400AE281E /* Preview Content */,
 			);
 			path = ColorPicker;
@@ -72,6 +88,46 @@
 				18D775C922AD944400AE281E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6362B47F2B2978D000B0A92D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1839F4AF25190F2A00BB00F1 /* AppMain.swift */,
+				18D775C622AD944400AE281E /* Assets.xcassets */,
+				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
+				18D775CE22AD944400AE281E /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6362B4802B2978D600B0A92D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				18D775C422AD944300AE281E /* ContentView.swift */,
+				6362B4862B2979C800B0A92D /* AdaptiveStack.swift */,
+				6362B4842B2979C800B0A92D /* IntegerSlider.swift */,
+				6362B4832B2979C800B0A92D /* RGBSliders.swift */,
+				6362B4852B2979C800B0A92D /* StylizedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6362B4812B2978DE00B0A92D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6362B48C2B2979D400B0A92D /* ColorModel.swift */,
+				6362B48B2B2979D400B0A92D /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6362B4822B2978E400B0A92D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6362B48F2B2979DB00B0A92D /* ValueClamping.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -103,7 +159,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = Kodeco;
 				TargetAttributes = {
 					18D775BC22AD944300AE281E = {
@@ -136,6 +192,7 @@
 			files = (
 				18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */,
 				18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */,
+				6362B4922B297C5500B0A92D /* README.md in Resources */,
 				18D775C722AD944400AE281E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,8 +226,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6362B4892B2979C800B0A92D /* StylizedButton.swift in Sources */,
+				6362B4872B2979C800B0A92D /* RGBSliders.swift in Sources */,
+				6362B48A2B2979C800B0A92D /* AdaptiveStack.swift in Sources */,
+				6362B48E2B2979D400B0A92D /* ColorModel.swift in Sources */,
+				6362B4902B2979DB00B0A92D /* ValueClamping.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
+				6362B48D2B2979D400B0A92D /* Constants.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
+				6362B4882B2979C800B0A92D /* IntegerSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +256,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -225,6 +290,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -253,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -286,6 +353,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -310,15 +378,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ColorPicker/Preview Content\"";
-				DEVELOPMENT_TEAM = BBK84N9JY9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ColorPicker/Info.plist;
+				INFOPLIST_FILE = ColorPicker/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.ColorPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = module2.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,15 +399,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ColorPicker/Preview Content\"";
-				DEVELOPMENT_TEAM = BBK84N9JY9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = ColorPicker/Info.plist;
+				INFOPLIST_FILE = ColorPicker/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.ColorPicker;
+				PRODUCT_BUNDLE_IDENTIFIER = module2.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

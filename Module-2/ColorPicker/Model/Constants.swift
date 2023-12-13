@@ -11,12 +11,12 @@ enum Constants {
         static let label = Font.system(.body)
         static let boldLabel = Font.system(.body, weight: .bold)
     }
-    
+
     enum Styling {
         static let cornerRadius: CGFloat = 20.0
         static let borderWidth: CGFloat = 3.0
         static let buttonPadding: CGFloat = 20.0
-        
+
         static let pickerBorderWidth: CGFloat = 20.0
     }
 }

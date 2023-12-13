@@ -6,7 +6,6 @@
 import SwiftUI
 
 struct StylizedButton: View {
-    
     let title: String
     let action: () -> Void
     
@@ -28,13 +27,11 @@ struct StylizedButton: View {
                 RoundedRectangle(cornerRadius: Constants.Styling.cornerRadius)
                     .strokeBorder(lineWidth: Constants.Styling.borderWidth)
                     .foregroundStyle(.buttonAccent)
-                    
             }
             // define content shape, so whole button remains tappable
             // even if background is set to clear
             .contentShape(RoundedRectangle(cornerRadius: Constants.Styling.cornerRadius))
             .onTapGesture { action() }
-            
     }
 }
 
@@ -49,4 +46,3 @@ struct StylizedButton_Previews: PreviewProvider {
             .preferredColorScheme(.dark)
     }
 }
-

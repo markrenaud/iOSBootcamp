@@ -3,22 +3,18 @@
 //  Created by Mark Renaud (2023).
 //
 
-
 import SwiftUI
 
-#warning("Fix Documentation")
-/// A View that places content in a `VStack` when the vertical size class is `.regular`,
-/// otherwise a `HStack`.
+/// A View that places adapst placement of content based on vertical size class.
 struct AdaptiveStack<Content: View>: View {
-    
     @Environment(\.verticalSizeClass) var verticalSizeClass
-    
+
     let content: Content
-    
+
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
-    
+
     var body: some View {
         if verticalSizeClass == .regular {
             VStack {
@@ -32,11 +28,10 @@ struct AdaptiveStack<Content: View>: View {
     }
 }
 
-fileprivate struct PreviewHelper: View {
+private struct PreviewHelper: View {
     @State private var model: ColorModel = .pantoneOrange
-    
+
     var body: some View {
-        
         AdaptiveStack {
             Rectangle()
                 .fill(.red)
@@ -44,12 +39,10 @@ fileprivate struct PreviewHelper: View {
                 .fill(.green)
             Rectangle()
                 .fill(.blue)
-
         }
         .padding()
     }
 }
-
 
 struct AdaptiveStack_Previews: PreviewProvider {
     static var previews: some View {
@@ -61,4 +54,3 @@ struct AdaptiveStack_Previews: PreviewProvider {
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
-

@@ -5,18 +5,7 @@
 
 import SwiftUI
 
-fileprivate extension VerticalAlignment {
-    private enum SliderAlignment: AlignmentID {
-        static func defaultValue(in d: ViewDimensions) -> CGFloat {
-            return d[VerticalAlignment.center]
-        }
-    }
-    
-    static let sliderAlignment = VerticalAlignment(SliderAlignment.self)
-}
-
 struct RGBSliders: View {
-    
     @Binding var red: Int
     @Binding var green: Int
     @Binding var blue: Int
@@ -35,7 +24,7 @@ struct RGBSliders: View {
                 // green
                 headerRow(title: "Green")
                 sliderRow(value: $green, accentColor: .green)
-
+                
                 // blue
                 headerRow(title: "Blue")
                 sliderRow(value: $blue, accentColor: .blue)
@@ -57,7 +46,7 @@ struct RGBSliders: View {
                 .foregroundStyle(.clear)
         }
     }
-
+    
     /// Creates a slider GridRow for the color component
     func sliderRow(value: Binding<Int>, accentColor: Color) -> some View {
         GridRow {
@@ -67,10 +56,9 @@ struct RGBSliders: View {
                 .gridColumnAlignment(.trailing)
         }
     }
-    
 }
 
-fileprivate struct PreviewHelper: View {
+private struct PreviewHelper: View {
     @State private var model: ColorModel = .pantoneOrange
     
     var body: some View {
@@ -83,7 +71,6 @@ fileprivate struct PreviewHelper: View {
         .padding()
     }
 }
-
 
 struct RGBSliders_Previews: PreviewProvider {
     static var previews: some View {

@@ -39,5 +39,5 @@ struct RGB {
     @Clamped(0...255) var red: Int = 128
     @Clamped(0...255) var green: Int = 128
     @Clamped(0...255) var blue: Int = 128
-
+    
 }

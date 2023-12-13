@@ -8,8 +8,8 @@ import SwiftUI
 /// A model that represents an RGB color.
 struct ColorModel {
     /// The range of values allowed for each component.
-    static let allowedColorRange: ClosedRange<Int> = 0...255
-    
+    static let allowedColorRange: ClosedRange<Int> = 0 ... 255
+
     /// The `red` component value.
     /// The value will be clamped between  0 and 255.
     @Clamped(ColorModel.allowedColorRange) var red: Int = ColorModel.allowedColorRange.lowerBound
@@ -31,11 +31,11 @@ struct ColorModel {
             blue: normalize(blue, in: ColorModel.allowedColorRange)
         )
     }
-    
+
     /// Maps a value contained within a given range to a Double value between 0.0 and 1.0
     private func normalize(_ value: Int, in range: ClosedRange<Int>) -> Double {
         let doubleRange = Double(range.upperBound - range.lowerBound)
-        return (Double(value - range.lowerBound) / doubleRange)
+        return Double(value - range.lowerBound) / doubleRange
     }
 }
 

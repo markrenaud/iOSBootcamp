@@ -10,28 +10,28 @@ struct IntegerSlider: View {
     @Binding var value: Int
     let range: ClosedRange<Int>
     let accentColor: Color
-    
+
     private var doubleValue: Binding<Double> {
         Binding {
-            return Double(value)
+            Double(value)
         } set: { updatedValue in
             value = Int(updatedValue)
         }
     }
-    
+
     var body: some View {
         Slider(
             value: doubleValue,
             in: Double(range.lowerBound)...Double(range.upperBound),
-            step: 1.0   // "integer" steps
+            step: 1.0 // "integer" steps
         )
         .tint(accentColor)
     }
 }
 
-fileprivate struct PreviewHelper: View {
+private struct PreviewHelper: View {
     @State private var sliderValue: Int = 128
-    
+
     var body: some View {
         VStack {
             IntegerSlider(
@@ -49,7 +49,7 @@ struct ColorSlider_Previews: PreviewProvider {
         PreviewHelper()
             .previewDisplayName("light")
             .preferredColorScheme(.light)
-        
+
         PreviewHelper()
             .previewDisplayName("dark")
             .preferredColorScheme(.dark)
