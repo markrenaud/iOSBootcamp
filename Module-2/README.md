@@ -67,7 +67,7 @@ Magic numbers can be avoided by using named constants or creating sets of relate
 #### _h) How can you view your App in Light and Dark Modes simultaneously?_
 
 - Choosing the `Color Scheme Variants` in the Xcode Canvas.
-- Creating multiple previews in the `PreviewProvider` for the `View` with associated `.preferredColorScheme(_ colorScheme: ColorScheme?) ` modifiers and switch between the two.
+- Creating multiple previews in the `PreviewProvider` for the `View` with associated `.preferredColorScheme(_:) ` modifiers and switch between the two.
 
 #### _i) Below is an image of the Canvas from Xcode. The Canvas is in selectable mode. Can you explain why the red background does not cover the entire button area?_
 
@@ -75,7 +75,7 @@ The order modifiers applied to a View matters.
 
 The shown result is likely due to a `padding` modifier being applied **after** a `background` modifier.
 
-By moving the `background` modifier **before** the `padding` modifier, the desired outcome can be achieved.
+By moving the `padding` modifier **before** the `background` modifier, the desired outcome can be achieved.
 
 Change:
 ```
