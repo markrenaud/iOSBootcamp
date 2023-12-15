@@ -95,3 +95,50 @@ Arrays in Swift are **0-indexed**.  That is, the **first** element in an array c
 m) An unordered collection of unique values of the same type is a ?????.
 
 `Set`
+
+## Part 3 - Above & Beyond
+
+#### _Copy the following code to your Playground and run it._
+ ```swift
+struct Square {
+    var side: Int
+    func area() -> Int {
+        return side * side
+    }
+}
+
+class Rectangle {
+    var length: Int
+    var width: Int
+    init(length: Int, width: Int) {
+        self.length = length
+        self.width = width
+    }
+    func area() -> Int {
+        return length * width
+    }
+}
+
+var square1 = Square(side: 4)
+var square2 = square1
+square2.side = 5
+print("Area: square1 - \(square1.area()) square2 - \(square2.area())")
+
+var rectangle1 = Rectangle(length: 4, width: 4)
+var rectangle2 = rectangle1
+rectangle2.length = 5
+print("Area: rectangle1 - \(rectangle1.area()) rectangle2 - \(rectangle2.area())")
+ ```
+ 
+### _In your README file, include the two lines of print out from this code and explain why the output is what it is._
+
+
+The two lines of print out are:
+```
+Area: square1 - 16 square2 - 25
+Area: rectangle1 - 20 rectangle2 - 20
+```
+
+The reason the areas of `square1` and `square2` are **not** equal is because `struct`s in Swift have value semantics. That is, when assigning `square2` the value of `square1`, we are creating a distinct **copy** of `square1`. Changing the side of `square2` does not affect `square1`'s properties.
+
+Conversely, the areas of `rectangle1` and `rectangle2` **are** equal because `class`es in Swift have reference semantics. That is, when setting `rectangle2` equal to `rectangle1`, we are not creating a new instance but rather making `rectangle2` point to the same underlying object in memory as `rectangle1`. Therefore, changing the `length` property of `rectangle1` also affects `rectangle2` since both variables reference the same instance.
