@@ -56,12 +56,21 @@ func average(_ values: [Int]?) {
         print("The array is nil. Calculating the average is impossible.")
         return
     }
+    // avoid divide by zero error if an empty
+    // array is passed in - this will require a different
+    // message to be printed to the debug console, and will
+    // thus be put in a separate guard statement.
+    guard !values.isEmpty else {
+        print("The array is empty. Calculating the average is impossible.")
+        return
+    }
     let average = values.reduce(0, +) / values.count
     print("The average of the values in the array is \(average).")
 }
 
 average(nums)
 average(nil)
+average([])
 /*:
  Create a `struct` called `Person` with the properties `firstName`, `lastName`, and `age`. Choose appropriate data types for the properties. Include a method on `Person` called `details` that prints the values stored in the properties in the following format:
  
