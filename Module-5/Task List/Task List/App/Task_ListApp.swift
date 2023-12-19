@@ -10,7 +10,8 @@ import SwiftUI
 struct Task_ListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TaskListView()
+                .environmentObject(Store(tasks: .sampleTasks))
         }
     }
 }
