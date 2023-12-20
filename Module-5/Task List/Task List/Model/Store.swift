@@ -7,7 +7,12 @@ import Foundation
 
 class Store: ObservableObject {
     /// All tasks saved to the list.
-    @Published var tasks: [TaskItem]
+    @Published var tasks: [TaskItem] { 
+        // see remarks in pull request
+        didSet {
+            implementCustomChangeLogic()
+        }
+    }
 
     init(tasks: [TaskItem] = []) {
         self.tasks = tasks
@@ -17,13 +22,17 @@ class Store: ObservableObject {
         tasks.append(task)
     }
     
-    func complete(_ taskID: UUID) {
-        if let storeIndex = tasks.firstIndex(where: { $0.id == taskID }) {
-            tasks[storeIndex].isCompleted = true
-        }
-    }
+    // MARK: - Non required methods for assignment
+    //         The following is not part of the assignment.  It is in relation
+    //         to discussion re implementation details in assignment review
+    //         pull request.
+
+    var taskChangesSinceLaunch: Int = 0
     
-    func complete(_ task: TaskItem) {
-        complete(task.id)
+    private func implementCustomChangeLogic() {
+        // it is the Store's responsibility to monitor for change
+        // to itself
+        print("Custom logic on task change here")
+        taskChangesSinceLaunch += 1
     }
 }

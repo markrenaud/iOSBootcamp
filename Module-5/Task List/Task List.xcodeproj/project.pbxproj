@@ -17,7 +17,18 @@
 		6307DA482B317489005CA996 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA452B317489005CA996 /* TaskItem.swift */; };
 		6307DA492B317489005CA996 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA462B317489005CA996 /* Store.swift */; };
 		6307DA4A2B317489005CA996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA472B317489005CA996 /* Constants.swift */; };
+		6307DA542B33B051005CA996 /* StoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA532B33B051005CA996 /* StoreTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6307DA552B33B051005CA996 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6307DA212B3172AE005CA996 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6307DA282B3172AE005CA996;
+			remoteInfo = "Task List";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6307DA292B3172AE005CA996 /* Task List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,10 +42,19 @@
 		6307DA452B317489005CA996 /* TaskItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		6307DA462B317489005CA996 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		6307DA472B317489005CA996 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6307DA512B33B051005CA996 /* Task ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6307DA532B33B051005CA996 /* StoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6307DA262B3172AE005CA996 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6307DA4E2B33B051005CA996 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				6307DA2B2B3172AE005CA996 /* Task List */,
+				6307DA522B33B051005CA996 /* Task ListTests */,
 				6307DA2A2B3172AE005CA996 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				6307DA292B3172AE005CA996 /* Task List.app */,
+				6307DA512B33B051005CA996 /* Task ListTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,6 +131,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		6307DA522B33B051005CA996 /* Task ListTests */ = {
+			isa = PBXGroup;
+			children = (
+				6307DA532B33B051005CA996 /* StoreTests.swift */,
+			);
+			path = "Task ListTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,6 +159,24 @@
 			productReference = 6307DA292B3172AE005CA996 /* Task List.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6307DA502B33B051005CA996 /* Task ListTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6307DA592B33B051005CA996 /* Build configuration list for PBXNativeTarget "Task ListTests" */;
+			buildPhases = (
+				6307DA4D2B33B051005CA996 /* Sources */,
+				6307DA4E2B33B051005CA996 /* Frameworks */,
+				6307DA4F2B33B051005CA996 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6307DA562B33B051005CA996 /* PBXTargetDependency */,
+			);
+			name = "Task ListTests";
+			productName = "Task ListTests";
+			productReference = 6307DA512B33B051005CA996 /* Task ListTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +189,10 @@
 				TargetAttributes = {
 					6307DA282B3172AE005CA996 = {
 						CreatedOnToolsVersion = 15.1;
+					};
+					6307DA502B33B051005CA996 = {
+						CreatedOnToolsVersion = 15.1;
+						TestTargetID = 6307DA282B3172AE005CA996;
 					};
 				};
 			};
@@ -158,6 +210,7 @@
 			projectRoot = "";
 			targets = (
 				6307DA282B3172AE005CA996 /* Task List */,
+				6307DA502B33B051005CA996 /* Task ListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +222,13 @@
 			files = (
 				6307DA342B3172AF005CA996 /* Preview Assets.xcassets in Resources */,
 				6307DA312B3172AF005CA996 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6307DA4F2B33B051005CA996 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +250,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6307DA4D2B33B051005CA996 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6307DA542B33B051005CA996 /* StoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6307DA562B33B051005CA996 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6307DA282B3172AE005CA996 /* Task List */;
+			targetProxy = 6307DA552B33B051005CA996 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		6307DA352B3172AF005CA996 /* Debug */ = {
@@ -351,6 +427,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Task List/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Task List";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
@@ -372,6 +449,42 @@
 			};
 			name = Release;
 		};
+		6307DA572B33B051005CA996 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "module5.bootcamp.Task-ListTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Task List.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Task List";
+			};
+			name = Debug;
+		};
+		6307DA582B33B051005CA996 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "module5.bootcamp.Task-ListTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Task List.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Task List";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -389,6 +502,15 @@
 			buildConfigurations = (
 				6307DA382B3172AF005CA996 /* Debug */,
 				6307DA392B3172AF005CA996 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6307DA592B33B051005CA996 /* Build configuration list for PBXNativeTarget "Task ListTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6307DA572B33B051005CA996 /* Debug */,
+				6307DA582B33B051005CA996 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
