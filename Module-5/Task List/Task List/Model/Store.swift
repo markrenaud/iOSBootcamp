@@ -26,8 +26,7 @@ class Store: ObservableObject {
     //         The following is not part of the assignment.  It is in relation
     //         to discussion re implementation details in assignment review
     //         pull request.
-
-    var taskChangesSinceLaunch: Int = 0
+    private (set) var taskChangesSinceLaunch: Int = 0
     
     private func implementCustomChangeLogic() {
         // it is the Store's responsibility to monitor for change
