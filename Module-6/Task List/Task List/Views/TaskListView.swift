@@ -6,49 +6,48 @@
 import SwiftUI
 
 struct TaskListView: View {
-    @EnvironmentObject var store: Store
     @State private var showingNewTask: Bool = false
+    @State private var showingSearch: Bool = false
+    @State private var searchText: String = ""
+    @Binding var tasks: [TaskItem]
+    let listTitle: String
+    let baseCriteria: TaskCriteria
+
+    private var searchCriteria: TaskCriteria {
+        baseCriteria.and(.titleContains(searchText))
+    }
 
     var body: some View {
         NavigationStack {
-            ScrollView(.vertical) {
-                LazyVStack {
-                    ForEach($store.tasks) { $task in
-                        NavigationLink {
-                            EditTaskView(task: $task)
-                        } label: {
-                            TaskRowView(task: task)
-                        }
+            TaskList(tasks: $tasks, criteria: searchCriteria)
+                .searchable(text: $searchText, prompt: "search tasks")
+                .navigationTitle(listTitle)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        newTaskButton
                     }
                 }
-            }
-            .navigationTitle("MyTasks")
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    HStack {
-                        Button(
-                            action: {
-                                showingNewTask.toggle()
-                            }, label: {
-                                HStack {
-                                    Image(systemName: Constants.Symbol.addItem)
-                                    Text("New Task")
-                                }
-                            }
-                        )
-                        .font(Constants.Font.toolbarButton)
-                        Spacer()
-                    }
-                }
-            }
         }
         .sheet(isPresented: $showingNewTask) {
             NewTaskView()
         }
     }
+
+    var newTaskButton: some View {
+        Button(
+            action: {
+                showingNewTask.toggle()
+            }, label: {
+                HStack {
+                    Image(systemName: Constants.Symbol.addItem)
+                }
+            }
+        )
+        .font(Constants.Font.toolbarButton)
+    }
 }
 
 #Preview {
-    TaskListView()
-        .environmentObject(Store(tasks: .sampleTasks))
+    TaskListView(tasks: .constant(.sampleTasks), listTitle: "Completed", baseCriteria: .completed)
 }

@@ -2,7 +2,6 @@
 //  Task_ListApp.swift
 //  Created by Mark Renaud (2023).
 //
-    
 
 import SwiftUI
 
@@ -10,7 +9,7 @@ import SwiftUI
 struct Task_ListApp: App {
     var body: some Scene {
         WindowGroup {
-            TaskListView()
+            BaseView()
                 .environmentObject(Store(tasks: .sampleTasks))
         }
     }
