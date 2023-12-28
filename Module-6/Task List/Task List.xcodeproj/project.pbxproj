@@ -15,6 +15,8 @@
 		6307DA482B317489005CA996 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA452B317489005CA996 /* TaskItem.swift */; };
 		6307DA492B317489005CA996 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA462B317489005CA996 /* Store.swift */; };
 		6307DA4A2B317489005CA996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6307DA472B317489005CA996 /* Constants.swift */; };
+		63412E292B3CF787002A3CD8 /* DiffTaskItemArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63412E272B3CF787002A3CD8 /* DiffTaskItemArray.swift */; };
+		63412E2A2B3CF787002A3CD8 /* QuickLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63412E282B3CF787002A3CD8 /* QuickLog.swift */; };
 		6378430A2B37CECF00960E55 /* TaskCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637843082B37CECF00960E55 /* TaskCriteria.swift */; };
 		6378430D2B37CF0500960E55 /* TaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378430C2B37CF0500960E55 /* TaskCategory.swift */; };
 		637843102B37CF2B00960E55 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6378430F2B37CF2B00960E55 /* BaseView.swift */; };
@@ -48,6 +50,8 @@
 		6307DA462B317489005CA996 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		6307DA472B317489005CA996 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6307DA512B33B051005CA996 /* Task ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Task ListTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63412E272B3CF787002A3CD8 /* DiffTaskItemArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiffTaskItemArray.swift; sourceTree = "<group>"; };
+		63412E282B3CF787002A3CD8 /* QuickLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLog.swift; sourceTree = "<group>"; };
 		637843082B37CECF00960E55 /* TaskCriteria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCriteria.swift; sourceTree = "<group>"; };
 		6378430C2B37CF0500960E55 /* TaskCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCategory.swift; sourceTree = "<group>"; };
 		6378430F2B37CF2B00960E55 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				6307DA3A2B317444005CA996 /* App */,
+				63412E262B3CF775002A3CD8 /* DebugHelpers */,
 				6307DA3B2B317449005CA996 /* Model */,
 				6307DA3C2B317450005CA996 /* Views */,
 				6307DA322B3172AF005CA996 /* Preview Content */,
@@ -155,6 +160,15 @@
 				6378431D2B37D2DF00960E55 /* TaskCriteriaTests.swift */,
 			);
 			path = "Task ListTests";
+			sourceTree = "<group>";
+		};
+		63412E262B3CF775002A3CD8 /* DebugHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				63412E282B3CF787002A3CD8 /* QuickLog.swift */,
+				63412E272B3CF787002A3CD8 /* DiffTaskItemArray.swift */,
+			);
+			path = DebugHelpers;
 			sourceTree = "<group>";
 		};
 		6378430E2B37CF1B00960E55 /* Components */ = {
@@ -273,8 +287,10 @@
 				637843182B37CF6900960E55 /* TaskForm.swift in Sources */,
 				6378430D2B37CF0500960E55 /* TaskCategory.swift in Sources */,
 				637843122B37CF4600960E55 /* TaskCategoryView.swift in Sources */,
+				63412E292B3CF787002A3CD8 /* DiffTaskItemArray.swift in Sources */,
 				6307DA492B317489005CA996 /* Store.swift in Sources */,
 				6307DA432B31747C005CA996 /* NewTaskView.swift in Sources */,
+				63412E2A2B3CF787002A3CD8 /* QuickLog.swift in Sources */,
 				6307DA482B317489005CA996 /* TaskItem.swift in Sources */,
 				637843172B37CF6900960E55 /* TaskList.swift in Sources */,
 				6307DA2D2B3172AE005CA996 /* Task_ListApp.swift in Sources */,

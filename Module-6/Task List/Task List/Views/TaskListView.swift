@@ -32,6 +32,10 @@ struct TaskListView: View {
         .sheet(isPresented: $showingNewTask) {
             NewTaskView()
         }
+        .onChange(of: tasks) { [oldTasks = tasks] newTasks in
+            let diffDebug = oldTasks.difference(from: newTasks).conciseDebug
+            QuickLog.ui.debug("`\(baseCriteria.debugLabel) tasks` observed change in tasks: \(diffDebug)")
+        }
     }
 
     var newTaskButton: some View {

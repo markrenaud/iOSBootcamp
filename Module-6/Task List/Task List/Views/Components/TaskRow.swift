@@ -15,17 +15,16 @@ struct TaskRow: View {
     /// the source of truth is updated - triggering the item to added/removed from the list.
     /// Having a 2-step process allows the animation to be interrupted, and reversed with the source
     /// of truth not being updated till the animation is complete.
-    @State private var isMarkedCompleted: Bool
+    ///
+    /// A 'placeholder' value of `false` is set on iniitalization.   The value is updated with
+    /// the *truth* from the associated task in `.onAppear(_:)`.
+    @State private var isMarkedCompleted: Bool = false
 
-    
-    init(task taskBinding: Binding<TaskItem>) {
-        self._task = taskBinding
-        // Match the initial animation state with the task's completed status.
-        self._isMarkedCompleted = State(initialValue: taskBinding.wrappedValue.isCompleted)
-    }
-    
     var body: some View {
-        HStack {
+
+        QuickLog.ui.debug("TaskRow `\(task.title)` redrawn - isCompleted: \(task.isCompleted ? "Y" : "N") isMarkedCompletion: \(isMarkedCompleted ? "Y" : "N")")
+        
+        return HStack {
             Text(task.title)
             Spacer()
             Image(systemName: isMarkedCompleted ? Constants.Symbol.checked : Constants.Symbol.unchecked)
@@ -45,6 +44,9 @@ struct TaskRow: View {
         }
         .font(Constants.Font.taskItemList)
         .padding()
+        .onAppear {
+            isMarkedCompleted = task.isCompleted
+        }
     }
     
     func checkBoxTapped() {
@@ -65,6 +67,7 @@ struct TaskRow: View {
                 if isMarkedCompleted == desiredFinalState {
                     withAnimation {
                         task.isCompleted = isMarkedCompleted
+                        QuickLog.ui.debug("Updated task `\(task.title)` | isCompleted: \(task.isCompleted ? "Y" : "N")")
                     }
                 }
             }
@@ -79,6 +82,7 @@ struct TaskRow: View {
                         await MainActor.run {
                             withAnimation {
                                 task.isCompleted = isMarkedCompleted
+                                QuickLog.ui.debug("Updated task `\(task.title)` | isCompleted: \(task.isCompleted ? "Y" : "N")")
                             }
                         }
                     }

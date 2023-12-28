@@ -8,8 +8,12 @@ import Foundation
 struct TaskCriteria {
     let match: (TaskItem) -> Bool
     
-    init(_ predicate: @escaping (TaskItem) -> Bool) {
+    /// An optional string label that can be used in debugging to identify a `TaskCriteria`.
+    let debugLabel: String
+    
+    init(_ debugLabel: String? = nil, _ predicate: @escaping (TaskItem) -> Bool) {
         self.match = predicate
+        self.debugLabel = debugLabel ?? "[Unlabeled TaskCriteria]"
     }
     
     /// Combines the current criteria with another criteria using a logical AND operation.
@@ -25,10 +29,10 @@ struct TaskCriteria {
 
 // Helpful default task filtering criteria.
 extension TaskCriteria {
-    static let all = TaskCriteria { _ in true }
+    static let all = TaskCriteria("all") { _ in true }
     
-    static let completed = TaskCriteria { $0.isCompleted ? true : false }
-    static let incomplete = TaskCriteria { $0.isCompleted ? false : true }
+    static let completed = TaskCriteria("completed") { $0.isCompleted ? true : false }
+    static let incomplete = TaskCriteria("incomplete") { $0.isCompleted ? false : true }
     
     static func titleContains(_ searchText: String) -> TaskCriteria {
         // sanitise search text for comparison
@@ -38,7 +42,7 @@ extension TaskCriteria {
         // and should return all tasks.
         if sanitised.isEmpty { return .all }
         
-        return TaskCriteria { task in
+        return TaskCriteria("titleContains: `\(searchText)`") { task in
             // check title for sanitised search text.
             task.title.lowercased().contains(
                 sanitised.trimmingCharacters(in: .whitespaces).lowercased()
@@ -46,7 +50,8 @@ extension TaskCriteria {
         }
     }
     
+    
     static func category(_ taskCategory: TaskCategory) -> TaskCriteria {
-        return TaskCriteria { $0.category == taskCategory }
+        return TaskCriteria("taskCategory: `\(taskCategory.title)`") { $0.category == taskCategory }
     }
 }
