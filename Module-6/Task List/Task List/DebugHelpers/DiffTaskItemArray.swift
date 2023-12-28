@@ -7,7 +7,7 @@
 import Foundation
 
 extension CollectionDifference where ChangeElement == TaskItem {
-    /// A helper function to log the difference in an array of `TaskItem`s in a more
+    /// A helper to log the difference in an array of `TaskItem`s in a more
     /// concise and readable way.
     var conciseDebug: String {
         var output: String = ""

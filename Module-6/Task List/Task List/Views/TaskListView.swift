@@ -7,7 +7,6 @@ import SwiftUI
 
 struct TaskListView: View {
     @State private var showingNewTask: Bool = false
-    @State private var showingSearch: Bool = false
     @State private var searchText: String = ""
     @Binding var tasks: [TaskItem]
     let listTitle: String
