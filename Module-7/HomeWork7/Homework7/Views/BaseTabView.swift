@@ -8,13 +8,20 @@ import SwiftUI
 struct BaseTabView: View {
     @State private var selected: Int = 1
 
+    @StateObject private var apiStore = ModularStore(
+        initialCodable: APIEntries.empty,
+        projectedKeyPath: \APIEntries.entries
+    )
+
+    @StateObject private var userStore = ModularStore(
+        initialCodable: UserResults.empty,
+        projectedKeyPath: \UserResults.users
+    )
+
     var body: some View {
         TabView(selection: $selected) {
             ModularContainerView(
-                store: ModularStore(
-                    initialCodable: APIEntries.empty,
-                    projectedKeyPath: \APIEntries.entries
-                ),
+                store: apiStore,
                 contentTitle: "APIs",
                 jsonFile: .apis,
                 jsonSearchDirectories: [.mainBundle, .userDocuments]
@@ -27,10 +34,7 @@ struct BaseTabView: View {
             .tag(1)
 
             ModularContainerView(
-                store: ModularStore(
-                    initialCodable: UserResults.empty,
-                    projectedKeyPath: \UserResults.users
-                ),
+                store: userStore,
                 contentTitle: "Users",
                 jsonFile: .users,
                 jsonSearchDirectories: [.mainBundle, .userDocuments]

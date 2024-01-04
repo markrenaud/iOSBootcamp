@@ -6,7 +6,6 @@
 import Foundation
 
 enum Constants {
-    
     enum Directory {
         case userDocuments
         case mainBundle
@@ -21,9 +20,8 @@ enum Constants {
         }
         
         func url(for jsonFile: Constants.JSONFile) -> URL {
-            self.url.appending(path: jsonFile.name)
+            url.appending(path: jsonFile.name)
         }
-        
         
         /// Check if a **file** exists in the directory and is reachable.
         func fileExists(_ jsonFile: Constants.JSONFile) -> Bool {
@@ -39,7 +37,6 @@ enum Constants {
                 return false
             }
         }
-
     }
     
     enum JSONFile: String {
@@ -49,7 +46,7 @@ enum Constants {
         var name: String { rawValue }
     }
     
-    struct DateReference {
+    enum DateReference {
         /// A placeholder for missing dates.
         /// 1/1/1 GMT
         static let placeholder: Date = DateComponents(
@@ -69,7 +66,6 @@ enum Constants {
         var name: String { rawValue }
     }
     
-    
     enum Map {
         static let defaultRegionMeters: Double = 100000 // 100km
         
@@ -77,21 +73,12 @@ enum Constants {
             /// A placeholder location
             case applePark
             
-            var latitude: Double {
+            var coordinates: (latitude: Double, longitude: Double) {
                 switch self {
                 case .applePark:
-                    return 37.334606
+                    return (latitude: 37.334606, longitude: -122.009102)
                 }
             }
-            var longitude: Double {
-                switch self {
-                case .applePark:
-                    return -122.009102
-                }
-            }
-            
-            
         }
     }
-
 }

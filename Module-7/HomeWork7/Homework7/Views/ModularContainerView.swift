@@ -6,7 +6,8 @@
 import SwiftUI
 
 struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: BidirectionalCollection>: View {
-    @StateObject var store: ModularStore<StoredType, ProjectedPropertyType>
+    @ObservedObject var store: ModularStore<StoredType, ProjectedPropertyType>
+    
     let contentTitle: String
     let jsonFile: Constants.JSONFile
     let jsonSearchDirectories: [Constants.Directory]

@@ -21,8 +21,8 @@ struct MarkedMap: View {
     }
     
     init(latitude: String, longitude: String) {
-        let dLatitude = Double(latitude) ?? Constants.Map.Location.applePark.latitude
-        let dLongitude = Double(longitude) ?? Constants.Map.Location.applePark.longitude
+        let dLatitude = Double(latitude) ?? Constants.Map.Location.applePark.coordinates.latitude
+        let dLongitude = Double(longitude) ?? Constants.Map.Location.applePark.coordinates.longitude
         
         let center = CLLocationCoordinate2D(latitude: dLatitude, longitude: dLongitude)
         
@@ -53,8 +53,8 @@ private struct Marker: Identifiable {
 #Preview {
     Form {
         MarkedMap(
-            latitude: Constants.Map.Location.applePark.latitude,
-            longitude: Constants.Map.Location.applePark.longitude
+            latitude: Constants.Map.Location.applePark.coordinates.latitude,
+            longitude: Constants.Map.Location.applePark.coordinates.longitude
         )
     }
 }
