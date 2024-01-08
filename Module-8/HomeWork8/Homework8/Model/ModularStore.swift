@@ -3,7 +3,7 @@
 //  Created by Mark Renaud (2023).
 //
 
-import Foundation
+import SwiftUI
 
 enum ModularStoreError: Error {
     case unableToLoadFrom(urls: [URL])
@@ -13,6 +13,7 @@ enum ModularStoreError: Error {
 /// The `projectedKeyPath` is used to access a collection within the Codable object.
 class ModularStore<StoredType: Codable, ProjectedPropertyType: BidirectionalCollection>: ObservableObject {
     @Published var codable: StoredType
+    @Published var downloadState: DownloadState = .pending
     private var projectedKeyPath: KeyPath<StoredType, ProjectedPropertyType>
 
     /// A projected collection from within the underlying codable object that serves as the main
@@ -65,6 +66,47 @@ extension ModularStore {
             }
         }
         // all the URLs given silently failed
+        // now throw an error.
+        throw ModularStoreError.unableToLoadFrom(urls: jsonURLs)
+    }
+
+    /// Loads the first successful JSON of `StoredType`  into the store from an array of `URL`s
+    /// using the Download Manager.
+    ///
+    /// Iterates through each `URL` until a valid JSON is found and decoded,
+    /// otherwise throws an error if none succeed.
+    func downloadJSON(using jsonURLs: [URL]) async throws {
+        for jsonURL in jsonURLs {
+            do {
+                let dm = DownloadManager(endpoint: jsonURL) { newState in
+                    // the callback is specified to run on the MainActor
+                    // so we can directly assign here
+                    self.downloadState = newState
+                    print("-> \(newState)")
+                }
+                let decoded = try await dm.download(type: StoredType.self)
+                await MainActor.run {
+                    codable = decoded
+                }
+                // if we made it heare, we succesfully loaded the data into the store from the endpoint
+                // log, and exit out of method
+                QuickLog.model.info("Loaded \(jsonURL.absoluteString) as `\(StoredType.self)` into GenericStore.codable.")
+                return
+            } catch {
+                // failed to download from the url, continue to the next url in the loop
+                QuickLog.model.info("Unable to load \(jsonURL.absoluteString) as `\(StoredType.self)` - \(error).")
+                continue
+            }
+        }
+        // all the URLs given failed
+        // we will manually set the download state to failed here
+        // to cover the edge case that no urls were provided - and thus
+        // no callbacks from the DownloadManager
+        await MainActor.run {
+            withAnimation {
+                downloadState = .failed
+            }
+        }
         // now throw an error.
         throw ModularStoreError.unableToLoadFrom(urls: jsonURLs)
     }
