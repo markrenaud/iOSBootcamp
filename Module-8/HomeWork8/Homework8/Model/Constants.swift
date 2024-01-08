@@ -6,6 +6,45 @@
 import Foundation
 
 enum Constants {
+    /// Constants specific to the API entries module.
+    enum APIModule {
+        static let title = "APIs"
+        static let remoteEndpointURL = URL(string: "https://api.publicapis.org/entries")!
+        static let jsonFile = "apilist.json"
+        
+        static let mainBundleURL = Directory.mainBundle.url(for: jsonFile)
+        static let documentsURL = Directory.userDocuments.url(for: jsonFile)
+        
+        enum Symbol: String {
+            case tab = "cloud.rainbow.half.fill"
+            var name: String { rawValue }
+        }
+    }
+    
+    /// Constants specific to the User module.
+    enum UserModule {
+        static let title = "Users"
+        static let jsonFile = "aboveandbeyond.json"
+        
+        static let mainBundleURL = Directory.mainBundle.url(for: jsonFile)
+        static let documentsURL = Directory.userDocuments.url(for: jsonFile)
+        
+        enum Symbol: String {
+            case tab = "folder.fill.badge.person.crop"
+            var name: String { rawValue }
+        }
+    }
+    
+    /// Constants specific to the Docuements module.
+    enum DocumentsModule {
+        static let title = "Documents"
+        enum Symbol: String {
+            case tab = "person.fill"
+            case photoPlaceholder = "person.circle.fill"
+            var name: String { rawValue }
+        }
+    }
+    
     enum Directory {
         case userDocuments
         case mainBundle
@@ -19,31 +58,22 @@ enum Constants {
             }
         }
         
-        func url(for jsonFile: Constants.JSONFile) -> URL {
-            url.appending(path: jsonFile.name)
+        func url(for fileName: String) -> URL {
+            url.appending(path: fileName)
         }
         
         /// Check if a **file** exists in the directory and is reachable.
-        func fileExists(_ jsonFile: Constants.JSONFile) -> Bool {
-            let checkURL = url(for: jsonFile)
+        func fileExists(_ fileName: String) -> Bool {
+            let checkURL = url(for: fileName)
             
             // ensure the url actually represents a file and not something else
-            guard checkURL.isFileURL else {
-                return false
-            }
+            guard checkURL.isFileURL else { return false }
             do {
                 return try checkURL.checkResourceIsReachable()
             } catch {
                 return false
             }
         }
-    }
-    
-    enum JSONFile: String {
-        case apis = "apilist.json"
-        case users = "aboveandbeyond.json"
-        
-        var name: String { rawValue }
     }
     
     enum DateReference {
@@ -58,11 +88,8 @@ enum Constants {
         ).date!
     }
     
-    enum Symbols: String {
+    enum GeneralSymbols: String {
         case photoPlaceholder = "person.circle.fill"
-        case apiTab = "cloud.rainbow.half.fill"
-        case userTab = "person.fill"
-        case documentsTab = "folder.fill.badge.person.crop"
         var name: String { rawValue }
     }
     

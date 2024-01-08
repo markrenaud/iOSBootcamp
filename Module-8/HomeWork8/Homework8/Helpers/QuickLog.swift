@@ -12,6 +12,8 @@ private extension Logger {
     static let ui = Logger(subsystem: bundleID, category: "ui")
     /// A logger for Model related messages
     static let model = Logger(subsystem: bundleID, category: "model")
+    /// A logger for Service related messages
+    static let service = Logger(subsystem: bundleID, category: "service")
 }
 
 /// Some syntactical sugar to quickly write to Unified Logging System
@@ -20,6 +22,8 @@ enum QuickLog {
     case ui
     /// A logger for Model related messages
     case model
+    /// A logger for Service related messages
+    case service
 
     private var logger: Logger {
         switch self {
@@ -27,6 +31,8 @@ enum QuickLog {
             Logger.ui
         case .model:
             Logger.model
+        case .service:
+            Logger.service
         }
     }
 

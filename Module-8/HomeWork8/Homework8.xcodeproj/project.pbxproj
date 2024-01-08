@@ -31,6 +31,10 @@
 		63366BCD2B43E3D400D91407 /* DocumentsExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */; };
 		63366BD02B43E3DE00D91407 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCE2B43E3DE00D91407 /* DirectoryManager.swift */; };
 		63366BD12B43E3DE00D91407 /* QuickLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCF2B43E3DE00D91407 /* QuickLog.swift */; };
+		63E03B572B4BF7F20033F07D /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B552B4BF7F20033F07D /* DownloadState.swift */; };
+		63E03B582B4BF7F20033F07D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B562B4BF7F20033F07D /* DownloadManager.swift */; };
+		63E03B5A2B4BF84F0033F07D /* DowloadStateSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B592B4BF84F0033F07D /* DowloadStateSymbolView.swift */; };
+		63E03B5D2B4BF8AF0033F07D /* DownloadTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */; };
 		BAF39C2E2AB792B400B18802 /* apilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* apilist.json */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +65,10 @@
 		63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsExplorer.swift; sourceTree = "<group>"; };
 		63366BCE2B43E3DE00D91407 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		63366BCF2B43E3DE00D91407 /* QuickLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLog.swift; sourceTree = "<group>"; };
+		63E03B552B4BF7F20033F07D /* DownloadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
+		63E03B562B4BF7F20033F07D /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
+		63E03B592B4BF84F0033F07D /* DowloadStateSymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DowloadStateSymbolView.swift; sourceTree = "<group>"; };
+		63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTestView.swift; sourceTree = "<group>"; };
 		BAF39C2D2AB792B400B18802 /* apilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apilist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +106,7 @@
 			children = (
 				63366B9E2B43E22A00D91407 /* App */,
 				63366B9F2B43E28300D91407 /* JSON */,
+				63E03B542B4BF7870033F07D /* Networking */,
 				63366BA22B43E2A700D91407 /* Model */,
 				63366BA32B43E2AE00D91407 /* Views */,
 				63366BA42B43E2BE00D91407 /* Helpers */,
@@ -150,9 +159,11 @@
 			children = (
 				63366BB82B43E39F00D91407 /* BaseTabView.swift */,
 				63366BB92B43E39F00D91407 /* ModularContainerView.swift */,
+				63E03B592B4BF84F0033F07D /* DowloadStateSymbolView.swift */,
 				63366BB32B43E36200D91407 /* API */,
 				63366BB42B43E36C00D91407 /* User */,
 				63366BB72B43E38100D91407 /* DocumentExplorer */,
+				63E03B5B2B4BF8830033F07D /* Testing */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,6 +239,23 @@
 				63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */,
 			);
 			path = DocumentExplorer;
+			sourceTree = "<group>";
+		};
+		63E03B542B4BF7870033F07D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				63E03B562B4BF7F20033F07D /* DownloadManager.swift */,
+				63E03B552B4BF7F20033F07D /* DownloadState.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		63E03B5B2B4BF8830033F07D /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */,
+			);
+			path = Testing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +356,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63366BCB2B43E3CC00D91407 /* AsyncImageCard.swift in Sources */,
+				63E03B5A2B4BF84F0033F07D /* DowloadStateSymbolView.swift in Sources */,
+				63E03B582B4BF7F20033F07D /* DownloadManager.swift in Sources */,
 				63366BCA2B43E3CC00D91407 /* MarkedMap.swift in Sources */,
 				63366BC52B43E3BE00D91407 /* UserResultsView.swift in Sources */,
 				63366BBF2B43E3AF00D91407 /* APIEntryDetailView.swift in Sources */,
@@ -338,12 +368,14 @@
 				63366BAE2B43E34700D91407 /* APIEntries.swift in Sources */,
 				63366BAD2B43E34700D91407 /* APIEntry.swift in Sources */,
 				63366BBE2B43E3AF00D91407 /* APIEntriesView.swift in Sources */,
+				63E03B572B4BF7F20033F07D /* DownloadState.swift in Sources */,
 				63366BBA2B43E39F00D91407 /* BaseTabView.swift in Sources */,
 				63366BC92B43E3CC00D91407 /* SimpleForm.swift in Sources */,
 				63366BD02B43E3DE00D91407 /* DirectoryManager.swift in Sources */,
 				63366BC12B43E3B500D91407 /* PillTag.swift in Sources */,
 				63366BB22B43E34F00D91407 /* UserResults.swift in Sources */,
 				63366BBB2B43E39F00D91407 /* ModularContainerView.swift in Sources */,
+				63E03B5D2B4BF8AF0033F07D /* DownloadTestView.swift in Sources */,
 				63366BA82B43E32F00D91407 /* Constants.swift in Sources */,
 				63366BB12B43E34F00D91407 /* User.swift in Sources */,
 				63366BC42B43E3BE00D91407 /* UserView.swift in Sources */,

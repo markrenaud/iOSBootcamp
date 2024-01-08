@@ -22,7 +22,7 @@ struct AsyncImageCard: View {
                             .stroke(lineWidth: 1.0)
                     )
             } placeholder: {
-                Image(systemName: Constants.Symbols.photoPlaceholder.name)
+                Image(systemName: Constants.GeneralSymbols.photoPlaceholder.name)
                     .resizable()
                     .scaledToFit()
             }
