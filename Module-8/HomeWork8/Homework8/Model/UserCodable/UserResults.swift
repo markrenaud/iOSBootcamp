@@ -25,7 +25,7 @@ extension UserResults {
 }
 
 extension UserResults {
-    private static let sampleData = try! Data(contentsOf: Constants.Directory.mainBundle.url(for: .users))
+    private static let sampleData = try! Data(contentsOf: Constants.UserModule.mainBundleURL)
     static let sample = try! JSONDecoder().decode(UserResults.self, from: sampleData)
     static let empty = UserResults(users: [], info: Info(seed: "empty", results: -1, page: -1, version: "-1"))
 }
