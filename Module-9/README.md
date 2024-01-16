@@ -98,8 +98,8 @@ Thus, there is no definite time after which a session cookie expires.
 behaviour / interactions
 
 ## Part 2 - Programming Assignment
-See Xcode project.
+See Xcode project with additional README in project folder.
 
 
 ## Part 3 - Above & Beyond
-See Xcode project.
+See Xcode project with additional README in project folder.
