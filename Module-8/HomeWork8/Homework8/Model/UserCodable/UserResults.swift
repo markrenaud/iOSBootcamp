@@ -25,7 +25,16 @@ extension UserResults {
 }
 
 extension UserResults {
-    private static let sampleData = try! Data(contentsOf: Constants.UserModule.mainBundleURL)
+    private static let sampleData = try! Data(contentsOf: UserResults.mainBundleURL)
     static let sample = try! JSONDecoder().decode(UserResults.self, from: sampleData)
     static let empty = UserResults(users: [], info: Info(seed: "empty", results: -1, page: -1, version: "-1"))
+}
+
+extension UserResults: ModularStoreResourcePreferenceProvider {
+    static let jsonFile = "aboveandbeyond.json"
+    /// As no remote url was provided for the UserModule, we will use the main bundle json
+    /// as a placeholder
+    static let remoteEndpointURL = Constants.Directory.mainBundle.url(for: jsonFile)
+    static let mainBundleURL = Constants.Directory.mainBundle.url(for: jsonFile)
+    static let documentsURL = Constants.Directory.userDocuments.url(for: jsonFile)
 }

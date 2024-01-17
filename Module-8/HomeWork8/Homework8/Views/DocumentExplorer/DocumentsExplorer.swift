@@ -1,6 +1,6 @@
 //
 //  DocumentsExplorer.swift
-//  Created by Mark Renaud (2023).
+//  Created by Mark Renaud (202r).
 //
 
 import SwiftUI
@@ -10,6 +10,7 @@ struct DocumentsExplorer: View {
     @State private var files: [DirectoryManager.File] = []
     let docsManager = DirectoryManager(.userDocuments)
     
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -19,19 +20,19 @@ struct DocumentsExplorer: View {
                 List {
                     if files.isEmpty {
                         VStack(alignment: .leading) {
-                            Text("no files found")
-                            Text("why not copy a JSON file here?")
+                            Text("no cached files found")
+                            Text("is caching enabled?")
                                 .font(.caption)
                         }
                         .foregroundStyle(.secondary)
                     }
                     ForEach(files) { file in
-                        Text(file.filename)
+                        FileRowView(file: file)
                     }
                     .onDelete(perform: delete)
                 }
             }
-            .navigationTitle("User Documents")
+            .navigationTitle("Cached Documents")
             .navigationBarTitleDisplayMode(.inline)
             .onAppear {
                 updateFileList()

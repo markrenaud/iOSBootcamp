@@ -1,6 +1,6 @@
 //
 //  Constants.swift
-//  Created by Mark Renaud (2023).
+//  Created by Mark Renaud (2024).
 //
 
 import Foundation
@@ -9,12 +9,6 @@ enum Constants {
     /// Constants specific to the API entries module.
     enum APIModule {
         static let title = "APIs"
-        static let remoteEndpointURL = URL(string: "https://api.publicapis.org/entries")!
-        static let jsonFile = "apilist.json"
-        
-        static let mainBundleURL = Directory.mainBundle.url(for: jsonFile)
-        static let documentsURL = Directory.userDocuments.url(for: jsonFile)
-        
         enum Symbol: String {
             case tab = "cloud.rainbow.half.fill"
             var name: String { rawValue }
@@ -24,23 +18,27 @@ enum Constants {
     /// Constants specific to the User module.
     enum UserModule {
         static let title = "Users"
-        static let jsonFile = "aboveandbeyond.json"
-        
-        static let mainBundleURL = Directory.mainBundle.url(for: jsonFile)
-        static let documentsURL = Directory.userDocuments.url(for: jsonFile)
-        
         enum Symbol: String {
-            case tab = "folder.fill.badge.person.crop"
+            case tab = "person.2.fill"
             var name: String { rawValue }
         }
     }
     
-    /// Constants specific to the Docuements module.
+    /// Constants specific to the Documents module.
     enum DocumentsModule {
-        static let title = "Documents"
+        static let title = "Cache"
         enum Symbol: String {
-            case tab = "person.fill"
+            case tab = "folder.fill.badge.person.crop"
             case photoPlaceholder = "person.circle.fill"
+            var name: String { rawValue }
+        }
+    }
+    
+    /// Constants specific to the Settings module.
+    enum SettingsModule {
+        static let title = "Settings"
+        enum Symbol: String {
+            case tab = "gear"
             var name: String { rawValue }
         }
     }
@@ -74,6 +72,11 @@ enum Constants {
                 return false
             }
         }
+    }
+    
+    struct PreferenceKey {
+        static let resources = "resourcePreferences"
+        static let cache = "enableAutoCache"
     }
     
     enum DateReference {

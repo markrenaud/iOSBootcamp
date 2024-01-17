@@ -24,13 +24,7 @@ struct BaseTabView: View {
 
             ModularContainerView(
                 store: apiStore,
-                contentTitle: Constants.APIModule.title,
-                jsonFileName: Constants.APIModule.jsonFile,
-                sourceURLs: [
-                    Constants.APIModule.remoteEndpointURL,
-                    Constants.APIModule.mainBundleURL,
-                    Constants.APIModule.documentsURL
-                ]
+                contentTitle: Constants.APIModule.title
             ) { apis in
                 AnyView(APIEntriesView(apis: apis))
             }
@@ -46,12 +40,7 @@ struct BaseTabView: View {
 
             ModularContainerView(
                 store: userStore,
-                contentTitle: Constants.UserModule.title,
-                jsonFileName: Constants.UserModule.jsonFile,
-                sourceURLs: [
-                    Constants.UserModule.mainBundleURL,
-                    Constants.UserModule.documentsURL
-                ]
+                contentTitle: Constants.UserModule.title
             ) { users in
                 AnyView(UserResultsView(users: users))
             }
@@ -63,7 +52,7 @@ struct BaseTabView: View {
             }
             .tag(2)
 
-            // MARK: Documents Tab
+            // MARK: - Documents Tab
 
             DocumentsExplorer()
                 .tabItem {
@@ -74,11 +63,13 @@ struct BaseTabView: View {
                 }
                 .tag(3)
 
-            // MARK: Download State Testing Tab
-
-            DownloadTestView()
+            // MARK: - Settings Tab
+            SettingsView()
                 .tabItem {
-                    Label("Testing", systemImage: "ant.circle")
+                    Label(
+                        Constants.SettingsModule.title,
+                        systemImage: Constants.SettingsModule.Symbol.tab.name
+                    )
                 }
                 .tag(4)
         }

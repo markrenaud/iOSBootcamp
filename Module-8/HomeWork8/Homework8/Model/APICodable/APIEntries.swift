@@ -37,3 +37,11 @@ struct APIEntries: Codable, Hashable {
 extension APIEntries {
     static let empty = APIEntries(entries: [])
 }
+
+extension APIEntries: ModularStoreResourcePreferenceProvider {
+    static let jsonFile = "apilist.json"
+    static let remoteEndpointURL = URL(string: "https://api.publicapis.org/entries")!
+    static let mainBundleURL = Constants.Directory.mainBundle.url(for: jsonFile)
+    static let documentsURL = Constants.Directory.userDocuments.url(for: jsonFile)
+
+}
