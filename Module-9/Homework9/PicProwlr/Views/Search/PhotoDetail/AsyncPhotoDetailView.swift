@@ -28,11 +28,20 @@ struct AsyncPhotoDetailView: View {
                 AnimatedProgressOwl(progress: progress)
                     .padding(20)
             } imageContent: { image in
-                // `ZoomView` is a custom view that allows
-                // the downloaded the image to be zoomed.
-                ZoomView {
-                    image
-                }
+//                // `ZoomView` is a custom view that allows
+//                // the downloaded the image to be zoomed.
+//                ZoomView {
+//                    image
+//                }
+//
+                // Replaced above ZoomView (glitchy native SwiftUI) with a
+                // more robust ZoomableView (which is a SwiftUi wrapper
+                // around a UIScrollView).
+                // The ZoomableView allows the downloaded image to be
+                // zoomed with pinch gesture, and scaled to full size or
+                // size that fits with a double tap.
+                ZoomableView(content: image)
+                
             }
             VStack {
                 Spacer()

@@ -59,9 +59,11 @@ Module 9's homework required us to create an app from scratch to query the Pexel
 
 [✓] Customised the progress bar (using an animation of the Owl from the App's icon).
 
-[✓] Created a generic SwiftUI-only "zoomable" view - that can scale contained content using a pinch gesture.
+~~[✓] Created a generic SwiftUI-only "zoomable" view - that can scale contained content using a pinch gesture.~~
 
-- Note: This is buggier than I would like and somewhat difficult to implement quite nicely in SwiftUI. If I were to ship this in production, I would actually wrap a UIKit UIScrollView and use the built-in `zoomScale` properties and gestures to create a more robust (and more easily implemented) solution.
+- ~~Note: This is buggier than I would like and somewhat difficult to implement quite nicely in SwiftUI. If I were to ship this in production, I would actually wrap a UIKit UIScrollView and use the built-in `zoomScale` properties and gestures to create a more robust (and more easily implemented) solution.~~
+
+[✓] As I was unhappy with the previously implemented "native" SwiftUI ZoomView, I reimplemented a generic SwiftUI "zoomable" view wrapped around UIKit's UIScrollView. This has removed the glitches that I was unhappy with and created a more robust implementation. This new generic zoomable view is called `ZoomableView`. The previous "native" SwiftUI implementation has been kept in the code for reference as `ZoomView`.
 
 [✓] Used the average background color provided by the Pexels photo object for placeholders while downloading in the search view and as part of the background gradient in the detail view.
 
