@@ -5,7 +5,7 @@
 
 #### _a) True or False: The function URLSession.dataTask(with:completionHandler:) is synchronous._
 
-False.  URLSession.dataTask(with:completionHandler:) operates asynchronously returning resuls via a completion handler closure.  
+False.  URLSession.dataTask(with:completionHandler:) operates asynchronously returning results via a completion handler closure.  
 
 #### _b) The sleep function is synchronous and it blocks its ?????????._
 
