@@ -35,11 +35,9 @@ extension PexelsPhotoResponse {
     var nextPageNumber: Int? {
         // if a next page url exists, we can calculate the next page number
         // directly from the current page number + 1
-        if nextPage != nil {
-            return page + 1
-        } else {
-            return nil
-        }
+        
+        guard nextPage.notNil else { return nil }
+        return page + 1
     }
     
 }

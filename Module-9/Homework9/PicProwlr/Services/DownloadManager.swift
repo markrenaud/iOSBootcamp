@@ -97,12 +97,11 @@ class DownloadManager: NSObject {
     @MainActor
     private func updateState(_ newState: DownloadState) {
         // update only if the state has changed
-        if state != newState {
-            state = newState
-            
-            if let stateChangeCallback {
-                stateChangeCallback(newState)
-            }
+        guard state != newState else { return }
+
+        state = newState
+        if let stateChangeCallback {
+            stateChangeCallback(newState)
         }
     }
 }
