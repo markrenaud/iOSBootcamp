@@ -182,8 +182,6 @@ struct ZoomView<Content: View>: View {
 #Preview {
     ZoomView() {
         Image(.previewPuppy)
-        //        Rectangle()
-        //            .frame(width: 500, height: 200)
     }
     .background(.yellow)
     .padding(20)

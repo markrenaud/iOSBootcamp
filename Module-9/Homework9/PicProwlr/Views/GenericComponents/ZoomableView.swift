@@ -147,8 +147,7 @@ extension ZoomableUIScrollView: UIScrollViewDelegate {
 }
 
 #Preview {
-    let sampleView = UIImageView(image: UIImage(named: "dachshund"))
-    let image = Image("dachshund")
+    let image = Image(.previewPuppy)
     return ZoomableView(content: image)
         .ignoresSafeArea(.all)
 }
