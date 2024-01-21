@@ -25,6 +25,8 @@ class PexelsService {
         return URLSession(configuration: config)
     }()
     
+    private let decoder: JSONDecoder = JSONDecoder()
+    
     /// Returns true if there is a token string.
     var emptyToken: Bool {
         if let token {
@@ -87,7 +89,7 @@ class PexelsService {
         returnType: T.Type
     ) async throws -> T {
         let data = try await authorizedGETRequest(resource: resource, queryItems: queryItems)
-        let decoded = try JSONDecoder().decode(T.self, from: data)
+        let decoded = try decoder.decode(T.self, from: data)
         return decoded
     }
     
