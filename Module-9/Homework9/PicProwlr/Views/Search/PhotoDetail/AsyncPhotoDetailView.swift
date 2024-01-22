@@ -12,7 +12,7 @@ struct AsyncPhotoDetailView: View {
 
     init(photo: PexelsPhoto, downloadSize: PexelsPhotoSize) {
         self.photo = photo
-        self.avgColor = Color.from(hexString: photo.avgColor)
+        self.avgColor = photo.avgSwiftUIcolor
         self.downloadURL = photo.url(for: downloadSize)
     }
 

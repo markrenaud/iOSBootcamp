@@ -15,7 +15,8 @@ struct PexelsPolaroid: View {
     var body: some View {
         PolaroidView(
             frameStyle: Color.polaroidFrame,
-            photoBackgroundColor: Color.from(hexString: photo.avgColor)) {
+            photoBackgroundColor: photo.avgSwiftUIcolor
+        ) {
                 // `AsyncImage` is used to load and display an image from a
                 // URL asynchronously.
                 // The average background colour information in the PexelsPhoto
@@ -25,7 +26,7 @@ struct PexelsPolaroid: View {
                         image.resizable().aspectRatio(contentMode: .fill)
                     } placeholder: {
                         Rectangle()
-                            .foregroundStyle(Color.from(hexString: photo.avgColor))
+                            .foregroundStyle(photo.avgSwiftUIcolor)
                     }
             } annotation: {
                 VStack {

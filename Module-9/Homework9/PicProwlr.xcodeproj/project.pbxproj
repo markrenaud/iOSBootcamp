@@ -15,6 +15,7 @@
 		63C455D72B59133A00834DAB /* ZoomableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C455D62B59133A00834DAB /* ZoomableView.swift */; };
 		63CC83BF2B5DDDF9008DB2C0 /* Optional+Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC83BE2B5DDDF9008DB2C0 /* Optional+Sugar.swift */; };
 		63CC83C12B5DE80F008DB2C0 /* URLRequest+Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC83C02B5DE80F008DB2C0 /* URLRequest+Enums.swift */; };
+		63CC83DF2B5E16AA008DB2C0 /* PexelsPhoto+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CC83DE2B5E16AA008DB2C0 /* PexelsPhoto+Color.swift */; };
 		63F4E1EB2B4E67D100351B65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F4E1EA2B4E67D100351B65 /* LaunchScreen.storyboard */; };
 		63F4E1ED2B4E6F7700351B65 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4E1EC2B4E6F7700351B65 /* BaseView.swift */; };
 		63F4E1F22B4E705000351B65 /* PexelsPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F4E1EF2B4E705000351B65 /* PexelsPhoto.swift */; };
@@ -66,6 +67,7 @@
 		63C455D62B59133A00834DAB /* ZoomableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableView.swift; sourceTree = "<group>"; };
 		63CC83BE2B5DDDF9008DB2C0 /* Optional+Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Sugar.swift"; sourceTree = "<group>"; };
 		63CC83C02B5DE80F008DB2C0 /* URLRequest+Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Enums.swift"; sourceTree = "<group>"; };
+		63CC83DE2B5E16AA008DB2C0 /* PexelsPhoto+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PexelsPhoto+Color.swift"; sourceTree = "<group>"; };
 		63F4E1EA2B4E67D100351B65 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63F4E1EC2B4E6F7700351B65 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		63F4E1EF2B4E705000351B65 /* PexelsPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PexelsPhoto.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				63F4E1FD2B4E805200351B65 /* PexelsPhoto+Sample.swift */,
 				63F4E2232B4ECC5400351B65 /* PexelsPhotoSize.swift */,
 				63F4E2252B4ECD0200351B65 /* PexelsPhoto+PexelsPhotoSize.swift */,
+				63CC83DE2B5E16AA008DB2C0 /* PexelsPhoto+Color.swift */,
 				63F4E1FF2B4E805F00351B65 /* SamplePhotos */,
 			);
 			path = Codable;
@@ -411,6 +414,7 @@
 				63F4E24E2B50FC8700351B65 /* PexelsPolaroid.swift in Sources */,
 				63F4E1FA2B4E749300351B65 /* Color+HexString.swift in Sources */,
 				63F4E1F62B4E720300351B65 /* SearchStore.swift in Sources */,
+				63CC83DF2B5E16AA008DB2C0 /* PexelsPhoto+Color.swift in Sources */,
 				63F4E2312B4FC56100351B65 /* Constants.swift in Sources */,
 				63F4E22D2B4FB1E400351B65 /* PhotoGrid.swift in Sources */,
 				63F4E23B2B50132F00351B65 /* DownloadManager.swift in Sources */,
