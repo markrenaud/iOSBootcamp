@@ -11,6 +11,11 @@ enum Constants {
         static let apiToken = "PEXELS_API_KEY"
     }
     
+    struct Animation {
+        /// The maximum angle of rotation of eyebrows either way in degrees.
+        static let maxEyebrowRotation: Double = 3.0
+    }
+    
     struct Styling {
         static let shadowRadius: CGFloat = 5.0
         static let shadowColor: Color = .white

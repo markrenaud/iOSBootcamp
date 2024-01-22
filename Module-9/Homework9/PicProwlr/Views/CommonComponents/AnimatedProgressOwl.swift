@@ -8,7 +8,7 @@ import SwiftUI
 
 struct AnimatedProgressOwl: View {
     /// The angle of rotation for the eyebrows in degrees.
-    @State private var eyebrowRotation: Double = -3.0
+    @State private var eyebrowRotation: Double = -Constants.Animation.maxEyebrowRotation
     /// Value between 0.0 and 1.0 representing completion progress.
     let progress: Double
     let eyebrowAnimation = Animation.interactiveSpring.repeatForever(autoreverses: true)
@@ -24,6 +24,7 @@ struct AnimatedProgressOwl: View {
         .padding()
         .onAppear {
             withAnimation(eyebrowAnimation) {
+                // toggle direction of eyebrow offset
                 eyebrowRotation *= -1.0
             }
         }
@@ -32,19 +33,23 @@ struct AnimatedProgressOwl: View {
 
 fileprivate struct PreviewHelper: View {
     @State private var progress: Double = 0.0
+
+    /// The duration (in seconds) that the preview animation should take to complete.
+    let previewSeconds: TimeInterval = 10.0
+    
     var body: some View {
         VStack {
             AnimatedProgressOwl(progress: progress)
             Button("Reset") {
                 progress = 0.0
-                withAnimation(.linear(duration: 10.0)) {
+                withAnimation(.linear(duration: previewSeconds)) {
                     self.progress = 1.0
                 }
             }
             .disabled(progress < 1.0)
         }
         .onAppear {
-            withAnimation(.linear(duration: 10.0)) {
+            withAnimation(.linear(duration: previewSeconds)) {
                 self.progress = 1.0
             }
         }
