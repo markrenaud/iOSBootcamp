@@ -13,11 +13,6 @@ enum PexelsError: Error {
 }
 
 class PexelsService {
-    enum HTTPMethod: String {
-        case get = "GET"
-    }
-    
-    /// private let token: String?
     private let baseURL = Constants.External.pexelsAPIBase
     private lazy var session: URLSession = {
         let config = URLSessionConfiguration.default
@@ -25,7 +20,7 @@ class PexelsService {
         return URLSession(configuration: config)
     }()
     
-    private let decoder: JSONDecoder = JSONDecoder()
+    private let decoder: JSONDecoder = .init()
     
     /// Returns true if there is a token string.
     var emptyToken: Bool {
@@ -70,10 +65,9 @@ class PexelsService {
             .appending(component: resource)
             .appending(queryItems: queryItems)
         
-        var request = URLRequest(url: url)
-        request.httpMethod = HTTPMethod.get.rawValue
+        var request = URLRequest(method: .get, url: url)
         if let token {
-            request.addValue(token, forHTTPHeaderField: "Authorization")
+            request.apply(header: .authorization, value: token)
         }
         
         let (data, response) = try await session.data(for: request)
