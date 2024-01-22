@@ -32,7 +32,7 @@ enum Constants {
     
     struct External {
         static let pexels: URL = URL(string: "https://www.pexels.com")!
-        static let pexelsAPIBase = URL(string: "https://api.pexels.com/v1")!
+        static let pexelsAPIBase = URL(string: InfoHelper.stringValue(forKey: "PexelsAPIBase")!)!
     }
     
     struct Background {
