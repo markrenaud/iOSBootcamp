@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @AppStorage(Constants.KeyName.apiToken) private var userAPIKey = ""
+    @SecuredProperty(Constants.KeyName.apiToken) private var userAPIKey
     @Environment(\.dismiss) var dismiss
 
     var body: some View {

@@ -31,17 +31,17 @@ class PexelsService {
     }
     
     /// The API token for the Pexel Service.
-    /// Will check in `UserDefaults` for a token,
+    /// Will check in keychain for a token (using SecuredStorage helper).,
     /// If not found, will check Environment Variables
     /// If still not found, will return nil.
     private var token: String? {
-        // check for a key in UserDefaults - and ensure the key is not empty
+        // check for a key in Keychain - and ensure the key is not empty
         if
-            let userDefaultsAPIKey = UserDefaults.standard.string(forKey: Constants.KeyName.apiToken),
-            !userDefaultsAPIKey.isEmpty
+            let securedAPIKey = try? SecuredStorage.read(from: Constants.KeyName.apiToken),
+            !securedAPIKey.isEmpty
         {
-            QuickLog.service.info("Using API Key from User Defaults")
-            return userDefaultsAPIKey
+            QuickLog.service.info("Using API Key from Keychain")
+            return securedAPIKey
             // check for a key in UserDefaults - and ensure the kis is not empty
         } else if
             let environmentAPIKey = ProcessInfo.processInfo.environment[Constants.KeyName.apiToken],
