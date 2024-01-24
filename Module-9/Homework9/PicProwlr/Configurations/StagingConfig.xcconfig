@@ -1,0 +1,12 @@
+//
+//  StagingConfig.xcconfig
+//  Created by Mark Renaud (2024).
+//
+    
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// NOTE: double forward slashes cause trailing string to be treated as a comment
+//       use a workaround - break up with `$()` - which evaluates to nothing.
+PEXELS_API_BASE = https:/$()/api.pexels.com/v1

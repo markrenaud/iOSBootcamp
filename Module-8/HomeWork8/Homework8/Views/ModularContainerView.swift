@@ -5,13 +5,10 @@
 
 import SwiftUI
 
-struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: BidirectionalCollection>: View {
+struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: BidirectionalCollection>: View where StoredType: ModularStoreResourcePreferenceProvider {
     @ObservedObject var store: ModularStore<StoredType, ProjectedPropertyType>
     
     let contentTitle: String
-    let jsonFileName: String
-    //    let jsonSearchDirectories: [Constants.Directory]
-    let sourceURLs: [URL]
     let projectedView: (_ projectedValue: ProjectedPropertyType) -> AnyView
     
     @State private var jsonExistsInDocuments: Bool = false
@@ -27,7 +24,7 @@ struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: Bidirect
                 projectedView(store.projectedIterable)
                     .navigationTitle(contentTitle)
                     .navigationBarTitleDisplayMode(.inline)
-                    .toolbar { copyJSONButton() }
+
                     .alert(alertTitle, isPresented: $showAlert) {
                         Button("Ok", role: .cancel) {}
                     } message: {
@@ -44,7 +41,7 @@ struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: Bidirect
     // MARK: - View Specific Utility Functions
 
     func updateJSONExistsInDocuments() {
-        jsonExistsInDocuments = Constants.Directory.userDocuments.fileExists(jsonFileName)
+        jsonExistsInDocuments = Constants.Directory.userDocuments.fileExists(StoredType.jsonFile)
     }
     
     /// attempt to load json for source urls
@@ -55,7 +52,7 @@ struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: Bidirect
         // start searching sources
         Task {
             do {
-                try await store.downloadJSON(using: sourceURLs)
+                try await store.downloadJSON()
             } catch {
                 // unable to find and decode the JSON file
                 // from any of the source URLs
@@ -73,35 +70,6 @@ struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: Bidirect
         showAlert = true
     }
     
-    func showCopyCompletionAlert() {
-        alertTitle = "Copied"
-        alertMessage = "Successfully copied \(contentTitle) to the Documents directory."
-        showAlert = true
-    }
-    
-    func showCopyErrorAlert() {
-        alertTitle = "Something Went Wrong 😥"
-        alertMessage = "There was an error copying \(contentTitle) to the Documents directory!"
-        showAlert = true
-    }
-    
-    func copyJSONButton() -> some View {
-        return Button(role: .none) {
-            do {
-                try store.writeJSON(
-                    to: Constants.Directory.userDocuments.url(for: jsonFileName),
-                    pretty: true
-                )
-                updateJSONExistsInDocuments()
-                showCopyCompletionAlert()
-            } catch {
-                showCopyErrorAlert()
-            }
-        } label: {
-            Label("Copy to Documents", systemImage: "doc.on.doc")
-        }
-        .disabled(jsonExistsInDocuments)
-    }
 }
 
 #Preview {
@@ -110,13 +78,7 @@ struct ModularContainerView<StoredType: Codable, ProjectedPropertyType: Bidirect
             initialCodable: APIEntries.empty,
             projectedKeyPath: \APIEntries.entries
         ),
-        contentTitle: Constants.APIModule.title,
-        jsonFileName: Constants.APIModule.jsonFile,
-        sourceURLs: [
-            Constants.APIModule.remoteEndpointURL,
-            Constants.APIModule.mainBundleURL,
-            Constants.APIModule.documentsURL
-        ]
+        contentTitle: Constants.APIModule.title
     ) { apis in
         AnyView(APIEntriesView(apis: apis))
     }

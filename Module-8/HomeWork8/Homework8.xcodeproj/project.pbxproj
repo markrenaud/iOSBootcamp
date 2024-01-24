@@ -31,10 +31,14 @@
 		63366BCD2B43E3D400D91407 /* DocumentsExplorer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */; };
 		63366BD02B43E3DE00D91407 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCE2B43E3DE00D91407 /* DirectoryManager.swift */; };
 		63366BD12B43E3DE00D91407 /* QuickLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63366BCF2B43E3DE00D91407 /* QuickLog.swift */; };
+		63556F742B576E38005D7DEC /* ModularStoreResourcePreferenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63556F722B576E38005D7DEC /* ModularStoreResourcePreferenceProvider.swift */; };
+		63556F752B576E38005D7DEC /* ModularStore+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63556F732B576E38005D7DEC /* ModularStore+JSON.swift */; };
+		63556F772B576EB7005D7DEC /* ResourcePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63556F762B576EB7005D7DEC /* ResourcePreference.swift */; };
+		63556F792B576ED7005D7DEC /* FileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63556F782B576ED7005D7DEC /* FileRowView.swift */; };
+		63556F7C2B576F0B005D7DEC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63556F7B2B576F0B005D7DEC /* SettingsView.swift */; };
 		63E03B572B4BF7F20033F07D /* DownloadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B552B4BF7F20033F07D /* DownloadState.swift */; };
 		63E03B582B4BF7F20033F07D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B562B4BF7F20033F07D /* DownloadManager.swift */; };
 		63E03B5A2B4BF84F0033F07D /* DowloadStateSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B592B4BF84F0033F07D /* DowloadStateSymbolView.swift */; };
-		63E03B5D2B4BF8AF0033F07D /* DownloadTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */; };
 		BAF39C2E2AB792B400B18802 /* apilist.json in Resources */ = {isa = PBXBuildFile; fileRef = BAF39C2D2AB792B400B18802 /* apilist.json */; };
 /* End PBXBuildFile section */
 
@@ -65,10 +69,14 @@
 		63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsExplorer.swift; sourceTree = "<group>"; };
 		63366BCE2B43E3DE00D91407 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		63366BCF2B43E3DE00D91407 /* QuickLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickLog.swift; sourceTree = "<group>"; };
+		63556F722B576E38005D7DEC /* ModularStoreResourcePreferenceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModularStoreResourcePreferenceProvider.swift; sourceTree = "<group>"; };
+		63556F732B576E38005D7DEC /* ModularStore+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ModularStore+JSON.swift"; sourceTree = "<group>"; };
+		63556F762B576EB7005D7DEC /* ResourcePreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourcePreference.swift; sourceTree = "<group>"; };
+		63556F782B576ED7005D7DEC /* FileRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileRowView.swift; sourceTree = "<group>"; };
+		63556F7B2B576F0B005D7DEC /* SettingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		63E03B552B4BF7F20033F07D /* DownloadState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadState.swift; sourceTree = "<group>"; };
 		63E03B562B4BF7F20033F07D /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		63E03B592B4BF84F0033F07D /* DowloadStateSymbolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DowloadStateSymbolView.swift; sourceTree = "<group>"; };
-		63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTestView.swift; sourceTree = "<group>"; };
 		BAF39C2D2AB792B400B18802 /* apilist.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apilist.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -147,7 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				63366BA72B43E32F00D91407 /* Constants.swift */,
-				63366BA92B43E33700D91407 /* ModularStore.swift */,
+				63556F762B576EB7005D7DEC /* ResourcePreference.swift */,
+				63556F712B576E26005D7DEC /* ModularStore */,
 				63366BA62B43E2F900D91407 /* APICodable */,
 				63366BA52B43E2E900D91407 /* UserCodable */,
 			);
@@ -163,7 +172,7 @@
 				63366BB32B43E36200D91407 /* API */,
 				63366BB42B43E36C00D91407 /* User */,
 				63366BB72B43E38100D91407 /* DocumentExplorer */,
-				63E03B5B2B4BF8830033F07D /* Testing */,
+				63556F7A2B576EE9005D7DEC /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -237,8 +246,27 @@
 			isa = PBXGroup;
 			children = (
 				63366BCC2B43E3D400D91407 /* DocumentsExplorer.swift */,
+				63556F782B576ED7005D7DEC /* FileRowView.swift */,
 			);
 			path = DocumentExplorer;
+			sourceTree = "<group>";
+		};
+		63556F712B576E26005D7DEC /* ModularStore */ = {
+			isa = PBXGroup;
+			children = (
+				63366BA92B43E33700D91407 /* ModularStore.swift */,
+				63556F732B576E38005D7DEC /* ModularStore+JSON.swift */,
+				63556F722B576E38005D7DEC /* ModularStoreResourcePreferenceProvider.swift */,
+			);
+			path = ModularStore;
+			sourceTree = "<group>";
+		};
+		63556F7A2B576EE9005D7DEC /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				63556F7B2B576F0B005D7DEC /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		63E03B542B4BF7870033F07D /* Networking */ = {
@@ -248,14 +276,6 @@
 				63E03B552B4BF7F20033F07D /* DownloadState.swift */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		63E03B5B2B4BF8830033F07D /* Testing */ = {
-			isa = PBXGroup;
-			children = (
-				63E03B5C2B4BF8AF0033F07D /* DownloadTestView.swift */,
-			);
-			path = Testing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,11 +377,14 @@
 			files = (
 				63366BCB2B43E3CC00D91407 /* AsyncImageCard.swift in Sources */,
 				63E03B5A2B4BF84F0033F07D /* DowloadStateSymbolView.swift in Sources */,
+				63556F752B576E38005D7DEC /* ModularStore+JSON.swift in Sources */,
 				63E03B582B4BF7F20033F07D /* DownloadManager.swift in Sources */,
 				63366BCA2B43E3CC00D91407 /* MarkedMap.swift in Sources */,
 				63366BC52B43E3BE00D91407 /* UserResultsView.swift in Sources */,
+				63556F742B576E38005D7DEC /* ModularStoreResourcePreferenceProvider.swift in Sources */,
 				63366BBF2B43E3AF00D91407 /* APIEntryDetailView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
+				63556F772B576EB7005D7DEC /* ResourcePreference.swift in Sources */,
 				63366BCD2B43E3D400D91407 /* DocumentsExplorer.swift in Sources */,
 				63366BAA2B43E33700D91407 /* ModularStore.swift in Sources */,
 				63366BD12B43E3DE00D91407 /* QuickLog.swift in Sources */,
@@ -370,15 +393,16 @@
 				63366BBE2B43E3AF00D91407 /* APIEntriesView.swift in Sources */,
 				63E03B572B4BF7F20033F07D /* DownloadState.swift in Sources */,
 				63366BBA2B43E39F00D91407 /* BaseTabView.swift in Sources */,
+				63556F7C2B576F0B005D7DEC /* SettingsView.swift in Sources */,
 				63366BC92B43E3CC00D91407 /* SimpleForm.swift in Sources */,
 				63366BD02B43E3DE00D91407 /* DirectoryManager.swift in Sources */,
 				63366BC12B43E3B500D91407 /* PillTag.swift in Sources */,
 				63366BB22B43E34F00D91407 /* UserResults.swift in Sources */,
 				63366BBB2B43E39F00D91407 /* ModularContainerView.swift in Sources */,
-				63E03B5D2B4BF8AF0033F07D /* DownloadTestView.swift in Sources */,
 				63366BA82B43E32F00D91407 /* Constants.swift in Sources */,
 				63366BB12B43E34F00D91407 /* User.swift in Sources */,
 				63366BC42B43E3BE00D91407 /* UserView.swift in Sources */,
+				63556F792B576ED7005D7DEC /* FileRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

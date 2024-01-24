@@ -1,47 +1,13 @@
 //
-//  ModularStore.swift
-//  Created by Mark Renaud (2023).
+//  ModularStore+JSON.swift
+//  Created by Mark Renaud (2024).
 //
 
 import SwiftUI
 
-enum ModularStoreError: Error {
-    case unableToLoadFrom(urls: [URL])
-}
-
-/// A Generic Store that manages a Codable object and allows access to a specific collection within it.
-/// The `projectedKeyPath` is used to access a collection within the Codable object.
-class ModularStore<StoredType: Codable, ProjectedPropertyType: BidirectionalCollection>: ObservableObject {
-    @Published var codable: StoredType
-    @Published var downloadState: DownloadState = .pending
-    private var projectedKeyPath: KeyPath<StoredType, ProjectedPropertyType>
-
-    /// A projected collection from within the underlying codable object that serves as the main
-    /// data interacted with. This collection is accessed via the `projectedKeyPath`.
-    var projectedIterable: ProjectedPropertyType {
-        get {
-            codable[keyPath: projectedKeyPath]
-        }
-        set {
-            // we can only write back to the property if it is mutable
-            switch projectedKeyPath {
-            case let writabledKeyPath as WritableKeyPath<StoredType, ProjectedPropertyType>:
-                codable[keyPath: writabledKeyPath] = newValue
-            default:
-                // The key path is not writable or does not match the expected type
-                QuickLog.model.error("Attempted to write to an immutable projected property '\(projectedKeyPath)' on '\(StoredType.self)' - operation ignored.")
-            }
-        }
-    }
-
-    init(initialCodable: StoredType, projectedKeyPath: KeyPath<StoredType, ProjectedPropertyType>) {
-        self.codable = initialCodable
-        self.projectedKeyPath = projectedKeyPath
-    }
-}
-
 // Methods to read / write JSON
 extension ModularStore {
+
     /// Loads the first successful JSON of `StoredType`  into the store from an array of `URL`s.
     /// Iterates through each `URL` until a valid JSON is found and decoded,
     /// otherwise throws an error if none succeed.
@@ -70,6 +36,17 @@ extension ModularStore {
         throw ModularStoreError.unableToLoadFrom(urls: jsonURLs)
     }
 
+    
+    //// Loads the first successful JSON of `StoredType`  into the store from an array of `URL`s
+    /// computed from stored resource preferences via the Download Manager.
+    ///
+    /// Iterates through each `URL` until a valid JSON is found and decoded,
+    /// otherwise throws an error if none succeed.
+    func downloadJSON() async throws {
+        try await downloadJSON(using: enabledResourcePreferenceURLs)
+    }
+    
+    
     /// Loads the first successful JSON of `StoredType`  into the store from an array of `URL`s
     /// using the Download Manager.
     ///
@@ -88,9 +65,16 @@ extension ModularStore {
                 await MainActor.run {
                     codable = decoded
                 }
+                
+                // check if we are to cache the downloaded json
+                // but only cache if the url is not already a cached version
+                if shouldCacheDownloads && jsonURL != StoredType.documentsURL {
+                    try cacheToDocuments()
+                }
+                
                 // if we made it heare, we succesfully loaded the data into the store from the endpoint
                 // log, and exit out of method
-                QuickLog.model.info("Loaded \(jsonURL.absoluteString) as `\(StoredType.self)` into GenericStore.codable.")
+                QuickLog.model.info("Loaded \(jsonURL.absoluteString) as `\(StoredType.jsonFile)` into the store.")
                 return
             } catch {
                 // failed to download from the url, continue to the next url in the loop
@@ -120,5 +104,13 @@ extension ModularStore {
         }
         let data = try jsonEncoder.encode(codable)
         try data.write(to: destinationURL, options: [.atomic])
+    }
+    
+    /// Caches a copy of the current `Store`'s `codable` property to the user's Documents
+    /// directory.
+    /// If `pretty` is true, the JSON will be formatted for readability.
+    func cacheToDocuments(pretty: Bool = true) throws {
+        try writeJSON(to: StoredType.documentsURL, pretty: pretty)
+        QuickLog.model.info("Cached store to Documents directory as: \(StoredType.jsonFile)")
     }
 }
