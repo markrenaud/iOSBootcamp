@@ -10,15 +10,23 @@ struct CatFact: Codable {
     let length: Int
 }
 
-extension CatFact {
-    /// The URL of the catfact.ninja API used to retrieve a random cat fact.
-    private static let endpointURL = URL(string: "https://catfact.ninja/fact")!
-
+struct CatFactService {
+    
+    static let defaultEndpoint = URL(string: "https://catfact.ninja/fact")!
+    
+    /// The API endpoint for Cat Facts
+    let endpoint: URL
+    
+    init(endpoint: URL = defaultEndpoint) {
+        self.endpoint = endpoint
+    }
+    
     /// Retrieves a random CatFact from catfact.ninja using URLSession.shared.
-    static func retrieveFact() async throws -> CatFact {
-        let (data, _) = try await URLSession.shared.data(from: endpointURL)
+    func retrieveFact() async throws -> CatFact {
+        let (data, _) = try await URLSession.shared.data(from: endpoint)
         return try JSONDecoder().decode(CatFact.self, from: data)
     }
+    
 }
 
 // 📌 Requirement:
@@ -26,22 +34,33 @@ extension CatFact {
 
 struct CatFactSequence: AsyncSequence {
     typealias Element = CatFact
-
+    
+    /// The CatFactService to use
+    let service: CatFactService
     /// The maximum number of cat facts to be emitted before terminating the sequence.
     let maxFacts: UInt
-
+    
+    init(maxFacts: UInt, using service: CatFactService = CatFactService()) {
+        self.service = service
+        self.maxFacts = maxFacts
+    }
+    
     // 📌 Requirement:
     // ✅ A struct for the Iterator
-
+    
     struct CatFactIterator: AsyncIteratorProtocol {
         /// The maximum number of cat facts to be emitted before terminating the sequence.
         let maxFacts: UInt
+        /// The CatFactService to use
+        let service: CatFactService
+        
         private var factsReturned = 0
-
-        init(maxFacts: UInt) {
+        
+        init(maxFacts: UInt, service: CatFactService) {
             self.maxFacts = maxFacts
+            self.service = service
         }
-
+        
         mutating func next() async throws -> CatFact? {
             // double-check task has not been cancelled - throw if it has
             try Task.checkCancellation()
@@ -50,16 +69,16 @@ struct CatFactSequence: AsyncSequence {
             // by returning nil
             guard factsReturned < maxFacts else { return nil }
             // retrieve a random cat fact
-            let fact = try await CatFact.retrieveFact()
+            let fact = try await service.retrieveFact()
             // if we have successfully retrieved, increment
             // counter and return the fact to the sequence
             factsReturned += 1
             return fact
         }
     }
-
+    
     func makeAsyncIterator() -> CatFactIterator {
-        return CatFactIterator(maxFacts: maxFacts)
+        return CatFactIterator(maxFacts: maxFacts, service: service)
     }
 }
 
